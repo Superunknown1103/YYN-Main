@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Shrikhand" rel="stylesheet">
+
+
+    <title>YYN HomePage</title>
+</head>
+<body>
+
+        <script>
+                function statusChangeCallback(response) {
+                    console.log('statusChangeCallback');
+                    console.log(response);
+
+                if (response.status === 'connected') {
+                    testAPI();
+                } else {
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+                }
+              }
+                function checkLoginState() {
+                    FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+              }
+                window.fbAsyncInit = function() {
+                    FB.init({
+                    appId      : '113238942711887',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v2.8'
+                });
+                    FB.getLoginStatus(function(response) {
+                        statusChangeCallback(response);
+              });
+
+              };
+                    (function(d, s, id) {
+                     var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "http://connect.facebook.net/en_US/sdk.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+
+                    function testAPI() {
+                    console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                    document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+                });
+              }
+            </script>
+
+
+        <img class="logo" src="./css/yyn.png" />
+
+
+
+                                <!-- // openning modal log-in // -->
+
+
+                                <div id="id01" class="modal">
+
+                                    <form id="form" class="modal-content animate" autocomplete="off">
+                                      <div class="imgcontainer">
+                                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                        <img src="./css/yum.png" alt="" height="100px">
+                                      </div>
+
+                                      <div class="modalContainer">
+                                        <div class="radio">
+                                            <div class="entry">Shopping. Tailored to your taste.</div>
+                                        <form autocomplete="off">
+                                                <input type="radio" id="gender-male" name="genderInput" value="Male" autocomplete="off">
+                                                <label>Male</label>
+                                                <input type="radio" id="gender-female" name="genderInput" value="Female" autocomplete="off">
+                                                <label>Female</label>
+                                                <input type="radio" id="gender-both" name="genderInput" value="Both" autocomplete="off">
+                                                <label>Both</label>
+                                        </form>
+
+                                        <button class="modalButton" type="submit" id="loginSubmit">Start Shopping</button>
+                                      </div>
+                                      </div>
+
+
+                                    </form>
+                                  </div>
+
+                                <!-- This is the action page where people pick what they like! -->
+                                  <div id="nameBox"></div>
+                                <button class='historyButton' id="uhbtn"> History </button>
+                                  <div class="wrap">
+                                            <div class="container">
+                                                <div id="pictureView">
+                                                    <img class="images" id='centerImage' src="./css/cbPurple.png" alt="" />
+                                                    <div class="overlay"></div>
+                                                    <div class="buttonWrapper" >
+                                                    <div class="button" id="yumbutton"><a href="#"> A Shop Built For <span id="storedName"></span></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                  </div>
+
+
+
+
+                                              <!-- User Input history Modal -->
+
+                                     <div id="id02" class="historyModal">
+                                            <div class="imgcontainer">
+                                                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                                    <img src="./css/yum.png" alt="#YYN" height="200px">
+                                                    <span id="storedName"></span>
+                                                  </div>
+                                         <div class="historyModal-content">
+
+
+                                                <div class="modalContainer">
+                                                    <div id='product'>
+                                                   Userinput goes in empty div...
+                                                    </div>
+                                                </div>
+                                         </div>
+                                     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="js/apicall.js"></script>
+
+    <script>
+
+
+        $(document).ready(function() {
+        $('#id01').show();
+            $('#loginSubmit').on('click', function(){
+              event.preventDefault();
+              $('#id01').hide();
+    });
+});
+
+
+
+
+
+        // function history() {
+        //     let modal = document.getElementById('id02');
+        //     modal.style.display = "block";
+        // };
+
+
+    </script>
+
+</body>
+</html>
