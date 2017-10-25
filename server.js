@@ -12,7 +12,7 @@ mongoose.Promise = Promise;
 // Sets up the Express App
 // =============================================================
 var app = express();
-const PORT = 8080;
+const PORT = 3000;
 
 // Requiring our models for syncing
 const Product = require("./models/post.js")
